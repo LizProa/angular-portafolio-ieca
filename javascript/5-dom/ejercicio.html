@@ -11,7 +11,7 @@
     </div>
     <div style="display: flex">
         <button id="btnActualizacion" onClick="modificarEncabezado()" style="margin-right: 10px">Establecer Encabezado</button>
-        <button id="btnUndo" disabled>Encabezado Anterior</button>
+        <button id="btnUndo" disabled onClick="anteriorEncabezado()">Encabezado Anterior</button>
     </div>
     <h1 id="encabezado">...</h1>
 
@@ -30,17 +30,38 @@
             para que pueda realizar la función de establecer el encabezado a un título anterior
 
         4.  Habilita el botón "btnUndo" una vez que se hayan establecido al menos 2 títulos
-                *   Puedes usar un contador para saber cuantas veces se han establecido
+                *   Puedes usar un contador para saber cuantas veces se  han establecido
                     así podrás saber cuando desbloquear el botón
         */
 
         const btnUndo = document.getElementById('btnUndo')
         const tituloEncabezado = document.getElementById('encabezado')
         const inputEncabezado = document.getElementById('inputEncabezado')
-
+        var contador = 0;
+        var EncabezadoAnterior = "";
+      
         function modificarEncabezado() {
             /* Tu código aquí */
+          var Encabezado = inputEncabezado.value;
+          if(Encabezado){
+            EncabezadoAnterior = tituloEncabezado.innerHTML;
+            tituloEncabezado.innerHTML = Encabezado;
+            inputEncabezado.value = "";
+            contador++;
+            if(contador >= 2){
+              btnUndo.disabled = false;
+            }
+          }
+          else{
+            alert("El encabezado no puede ser vacío");
+          }
         }
+      
+        function anteriorEncabezado(){
+          tituloEncabezado.innerHTML = EncabezadoAnterior;
+           inputEncabezado.value = "";
+        }
+      
     </script>
 </body>
 

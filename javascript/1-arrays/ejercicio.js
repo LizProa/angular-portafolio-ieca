@@ -38,6 +38,16 @@ function vaciarCarritoConTotal() {
     ];
 
     // Completa aquí código de escenario 1
+    for (const index in carrito){
+        total += parseFloat(carrito[index].precio);
+    }
+
+    console.log("ESCENARIO 1");
+    console.log("Total: " + total);
+    console.log("Arreglo antes del splice: " + carrito);
+    var n = carrito.length;
+    carrito.splice(0, n);
+    console.log("Arreglo despues del splice: " + carrito);
 }
 
 /*
@@ -56,6 +66,11 @@ function cuentaDeAlumnos() {
     const grupoB = ["Alejandro Ruiz","Carmen Ortega","Roberto Mendoza","Patricia Vargas","Eduardo Morales","Olga Reyes","Gustavo Paredes","Natalia Soto","Hector Delgado","Monica Castillo","Raul Rios","Raquel Valdez","Fernando Acosta","Silvia Castro","Manuel Vega","Lourdes Guzman","Jorge Navarro"]
 
     // Completa aquí código de Escenario 2
+    console.log("ESCENARIO 2");
+    const grupoNuevo = grupoA.concat(grupoB);
+    var CantidadAlumnos = grupoNuevo.length;
+    console.log(grupoNuevo);
+    console.log("Cantidad de Alumnos: " + CantidadAlumnos);
 }
 
 /*
@@ -81,9 +96,20 @@ function transmitiendoBatch() {
     "DDDDDDDDDDDD","11010100101","01010101010","11110000000","00001111000","10101010101","11001100110","00110011001","11111111111","00000000000","10000000000","01000000000","11000000000","00100000000","10100000000","01100000000","11100000000","00010000000","10010000000","01010000000","11010000000","00110000000","10110000000","01110000000","11110000000","00001000000","10001000000","01001000000","11001000000","00101000000","10101000000","01101000000","11101000000","00011000000","10011000000","01011000000","11011000000","00111000000","10111000000","01111000000","11111000000","00000100000","10000100000","01000100000","11000100000","00100100000","10100100000","01100100000","11100100000","00010100000"];
 
     // Completa aquí código de Escenario 3
+    console.log("ESCENARIO 3");
+    var CantidadTotal = backup.length;
+    var Lote1 = backup.slice(0, CantidadTotal/4);
+    var Lote2 = backup.slice(CantidadTotal/4, CantidadTotal/2);
+    var Lote3 = backup.slice(CantidadTotal/2, (CantidadTotal/4)*3);
+    var Lote4 = backup.slice((CantidadTotal/4)*3, CantidadTotal);
+  
+    console.log("Lote 1: " + Lote1 + " Cantidad Items: " + Lote1.length);
+    console.log("Lote 2: " + Lote2 + " Cantidad Items: " + Lote2.length);
+    console.log("Lote 3: " + Lote3 + " Cantidad Items: " + Lote3.length);
+    console.log("Lote 4: " + Lote4 + " Cantidad Items: " + Lote4.length);
 }
 
-//vaciarCarritoConTotal()
-//cuentaDeAlumnos()
-//transmitiendoBatch()
+vaciarCarritoConTotal()
+cuentaDeAlumnos()
+transmitiendoBatch()
 
