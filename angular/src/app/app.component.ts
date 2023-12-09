@@ -67,10 +67,23 @@ export class AppComponent implements OnInit {
       AQUÍ PUEDES CONTINUAR CON EL EJERCICIO PARA OBTENER LA IMAGEN DEL POKÉMON
         -> Recuerda revisar el API de https://pokeapi.co/ <-
       */
-
+      //Boton a funcion verImagen  
   }
 
   nuevoPokemon: string = "";
 
+  
+  imagenPokemon:string = "";
+  Pokemon_Seleccionado:string = "";
+
+  verImagen(url: string, nombre: string):void {
+    fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      console.log("Url imagen: " + data.sprites.front_default)
+      this.imagenPokemon = data.sprites.front_default;
+    })
+    this.Pokemon_Seleccionado = nombre;
+  }
 
 }

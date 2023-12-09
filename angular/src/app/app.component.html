@@ -92,15 +92,21 @@
 
     <h4>Mi Pokedex</h4>
     <div class="pokemons">
-      <div *ngFor="let miPokemon of miPokedex">
+      <div *ngFor="let miPokemon of miPokedex" class="Div_Pokemones Div_Pokemon_{{ miPokemon.name }}">
         <a href={{miPokemon.url}} target="_blank">
           <span>{{ miPokemon.name }}</span>
         </a>
+        <button (click)="verImagen(miPokemon.url, miPokemon.name)">✅</button>
       </div>
 
       <!--
         AQUÍ PUEDES AGREGAR EL HTML NECESARIO PARA LA IMAGEN DEL POKÉMON
        -->
+       <div>
+        <h5>Pokemon seleccionado</h5>
+        <h1>{{ Pokemon_Seleccionado }}</h1>
+        <img [src]="imagenPokemon" width="75" height="75" alt="Selecciona un Pokemon"/>
+       </div> 
 
     </div>
     <!-- #endregion -->
